@@ -10,7 +10,7 @@ function App() {
                 headers: {
                     "x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
                     "x-rapidapi-key":
-                        "26d1cf4addmshb8df00201b9e71fp1944aejsn916d0e59f160",
+                        process.env.SECRET_KEY,
                 },
             }
         )
