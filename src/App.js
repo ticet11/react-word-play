@@ -1,7 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 import "./App.css";
 
 function App() {
+    const [word, setWord] = useState('');
+
+    
+
     const wordFetcher = () => {
         fetch(
             "https://wordsapiv1.p.rapidapi.com/words/car/hasParts",
