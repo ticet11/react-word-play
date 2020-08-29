@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from "react";
-import "./App.css";
+
+import HiddenLetters from './components/HiddenLetters';
+import "./App.scss";
 
 function App() {
     const [word, setWord] = useState('crybaby');
@@ -9,9 +11,7 @@ function App() {
     })
 
     const wordSpreader = () => {
-        for (let char of word) {
-            return <div>{char}</div>
-        }
+       return word.split('').map(char => <HiddenLetters letter={char} />)
     }
 
     const wordFetcher = () => {
@@ -36,7 +36,7 @@ function App() {
             <button onClick={() => wordFetcher()}>Get a word</button>
 
             <p>Category: Babies</p>
-            <h1>{wordSpreader()}</h1>
+            <div className='secret-word'>{wordSpreader()}</div>
             <h2>A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</h2>
         </div>
     );

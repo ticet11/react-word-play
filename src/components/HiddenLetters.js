@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Component } from "react";
 
-const HiddenLetters = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+export default class HiddenLetters extends Component {
+    render() {
+        return (
+            <div className={this.props.letter}>
+                {this.props.letter}
+            </div>
+        );
+    }
 }
-
-export default HiddenLetters;
