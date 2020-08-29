@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 
 import HiddenLetters from './components/HiddenLetters';
+import Keyboard from './components/Keyboard';
 import "./App.scss";
 
 function App() {
@@ -37,7 +38,7 @@ function App() {
 
             <p>Category: Babies</p>
             <div className='secret-word'>{wordSpreader()}</div>
-            <h2>A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</h2>
+            <Keyboard />
         </div>
     );
 }
