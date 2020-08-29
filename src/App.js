@@ -2,15 +2,21 @@ import React, {useState, useEffect} from "react";
 import "./App.css";
 
 function App() {
-    const [word, setWord] = useState('');
+    const [word, setWord] = useState('crybaby');
 
     useEffect(() => {
         wordFetcher();
     })
 
+    const wordSpreader = () => {
+        for (let char of word) {
+            return <div>{char}</div>
+        }
+    }
+
     const wordFetcher = () => {
         fetch(
-            "https://wordsapiv1.p.rapidapi.com/words/car/hasParts",
+            "https://cors-anywhere.herokuapp.com/https://wordsapiv1.p.rapidapi.com/words?random=true",
             {
                 method: "GET",
                 headers: {
@@ -30,7 +36,7 @@ function App() {
             <button onClick={() => wordFetcher()}>Get a word</button>
 
             <p>Category: Babies</p>
-            <h1>_ _ _ _ _ B _</h1>
+            <h1>{wordSpreader()}</h1>
             <h2>A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</h2>
         </div>
     );
