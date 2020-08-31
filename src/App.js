@@ -5,14 +5,16 @@ import Keyboard from './components/Keyboard';
 import "./App.scss";
 
 function App() {
-    const [word, setWord] = useState('crybaby');
+    const [wordToGuess, setWordToGuess] = useState('crybaby');
+    const [inputWord, setInputWord] = useState('');
+    const [guessedLetters, setGuessedLetters] = useState([]);
 
     useEffect(() => {
         wordFetcher();
     })
 
     const wordSpreader = () => {
-       return word.split('').map(char => <HiddenLetters letter={char} />)
+       return wordToGuess.split('').map(char => <HiddenLetters letter={char} />)
     }
 
     const wordFetcher = () => {
