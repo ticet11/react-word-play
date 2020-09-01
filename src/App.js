@@ -9,25 +9,13 @@ function App() {
     const [inputWord, setInputWord] = useState('');
     const [guessedLetters, setGuessedLetters] = useState([]);
 
-    useEffect(() => {
-        wordFetcher();
-    })
-
     const wordSpreader = () => {
-       return wordToGuess.split('').map(char => <HiddenLetters letter={char} />)
+       return wordToGuess.split('').map(char => <HiddenLetters letter=' ' />)
     }
 
     const wordFetcher = () => {
         fetch(
-            "https://cors-anywhere.herokuapp.com/https://wordsapiv1.p.rapidapi.com/words?random=true",
-            {
-                method: "GET",
-                headers: {
-                    "x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
-                    "x-rapidapi-key":
-                        process.env.SECRET_KEY,
-                },
-            }
+            `http://api.wordnik.com/v4/words.json/randomWord?api_key=${process.env.REACT_APP_SECRET_KEY}`,
         )
             .then((res) => console.log(res))
             .catch((err) => console.error(err));
